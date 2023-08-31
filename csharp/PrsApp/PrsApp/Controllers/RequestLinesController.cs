@@ -65,6 +65,8 @@ namespace PrsApp.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+
+                await RecalculateRequestTotal(requestLine.RequestId);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -93,6 +95,8 @@ namespace PrsApp.Controllers
             _context.RequestLines.Add(requestLine);
             await _context.SaveChangesAsync();
 
+            await RecalculateRequestTotal(requestLine.RequestId);
+
             return CreatedAtAction("GetRequestLine", new { id = requestLine.Id }, requestLine);
         }
 
@@ -110,8 +114,12 @@ namespace PrsApp.Controllers
                 return NotFound();
             }
 
+            var requestId = requestLine.RequestId;
+
             _context.RequestLines.Remove(requestLine);
             await _context.SaveChangesAsync();
+
+            await RecalculateRequestTotal(requestId);
 
             return NoContent();
         }
@@ -119,6 +127,22 @@ namespace PrsApp.Controllers
         private bool RequestLineExists(int id)
         {
             return (_context.RequestLines?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private async Task RecalculateRequestTotal(int requestId)
+        {
+            var total = (from rl in _context.RequestLines
+                         join p in _context.Products
+                             on rl.ProductId equals p.Id
+                         where rl.RequestId == requestId
+                         select p.Price * rl.Quantity)
+                        .Sum();
+
+            var request = await _context.Requests.FindAsync(requestId);
+
+            request!.Total = total;
+
+            await _context.SaveChangesAsync();
         }
     }
 }
