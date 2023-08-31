@@ -99,6 +99,28 @@ namespace PrsApp.Controllers
             return NoContent();
         }
 
+        // PUT: api/Requests/approve/{id}
+        [HttpPut("approve/{id}")]
+        public async Task<IActionResult> ApproveRequest(int id, Request request)
+        {
+            request.Status = "APPROVED";
+
+            await PutRequest(id, request);
+
+            return NoContent();
+        }
+
+        // PUT: api/Requests/reject/{id}
+        [HttpPut("reject/{id}")]
+        public async Task<IActionResult> RejectRequest(int id, Request request)
+        {
+            request.Status = "REJECTED";
+
+            await PutRequest(id, request);
+
+            return NoContent();
+        }
+
         // POST: api/Requests
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
