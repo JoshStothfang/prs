@@ -50,6 +50,13 @@ namespace PrsApp.Controllers
             return request;
         }
 
+        // GET: api/Requests/reviews/{userId}
+        [HttpGet("reviews/{userId}")]
+        public async Task<ActionResult<IEnumerable<Request>>> GetReviewRequests(int userId)
+        {
+            return await _context.Requests.Where(x => x.Status == "REVIEW" && x.UserId != userId).ToListAsync();
+        }
+
         // PUT: api/Requests/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
