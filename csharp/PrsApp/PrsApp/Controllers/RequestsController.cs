@@ -81,6 +81,24 @@ namespace PrsApp.Controllers
             return NoContent();
         }
 
+        // PUT: api/Requests/review/{id}
+        [HttpPut("review/{id}")]
+        public async Task<IActionResult> ReviewRequest(int id, Request request)
+        {
+            if (request.Total <= 50)
+            {
+                request.Status = "APPROVED";
+            }
+            else
+            {
+                request.Status = "REVIEW";
+            }
+
+            await PutRequest(id, request);
+
+            return NoContent();
+        }
+
         // POST: api/Requests
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
