@@ -1,4 +1,5 @@
 appsettings.json
+application.properties
 
 # globs
 Makefile.in
