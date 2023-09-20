@@ -76,7 +76,7 @@ public class UserController {
 	@PutMapping("{id}")
 	public ResponseEntity putUser(@PathVariable int id, @RequestBody User user) {
 		
-		if (id <= 0) {
+		if (user.getId() != id) {
 			
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}		
