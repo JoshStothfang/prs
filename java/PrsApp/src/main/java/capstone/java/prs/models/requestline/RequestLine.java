@@ -1,5 +1,7 @@
 package capstone.java.prs.models.requestline;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import capstone.java.prs.models.product.Product;
 import capstone.java.prs.models.request.Request;
 import jakarta.persistence.Column;
@@ -19,6 +21,7 @@ public class RequestLine {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@JsonBackReference
 	@ManyToOne(optional=false)
 	@JoinColumn(name="requestId")
 	private Request request;

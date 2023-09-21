@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import capstone.java.prs.models.product.ProductRepository;
+import capstone.java.prs.models.request.Request;
+import capstone.java.prs.models.request.RequestRepository;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/requestlines")
@@ -22,6 +26,12 @@ public class RequestLineController {
 
 	@Autowired
 	private RequestLineRepository reqLineRepo;
+	
+	@Autowired
+	private RequestRepository requestRepo;
+	
+	@Autowired
+	private ProductRepository productRepo;
 	
 	@GetMapping
 	public ResponseEntity<Iterable<RequestLine>> getRequestLines() {
@@ -56,6 +66,7 @@ public class RequestLineController {
 		}
 		
 		reqLineRepo.save(reqLine);
+		recalculateRequestTotal(reqLine.getRequest().getId());
 		return new ResponseEntity<RequestLine>(reqLine, HttpStatus.CREATED);	
 	}
 	
@@ -83,5 +94,21 @@ public class RequestLineController {
 		
 		reqLineRepo.deleteById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	private void recalculateRequestTotal(int requestId) {
+		
+		Iterable<RequestLine> reqLines = reqLineRepo.getAllByRequestId(requestId);
+		double total = 0;
+		
+		for (RequestLine reqLine : reqLines) {
+			
+			total += productRepo.findById(reqLine.getProduct().getId()).get().getPrice() * reqLine.getQuantity();
+		}
+		
+		Request request = requestRepo.findById(requestId).get();
+		request.setTotal(total);
+		requestRepo.save(request);
+		return;
 	}
 }
