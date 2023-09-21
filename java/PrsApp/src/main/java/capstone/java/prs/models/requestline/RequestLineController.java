@@ -80,6 +80,7 @@ public class RequestLineController {
 		}
 		
 		reqLineRepo.save(reqLine);
+		recalculateRequestTotal(reqLine.getRequest().getId());
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -92,7 +93,9 @@ public class RequestLineController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
+		int requestId = reqLineRepo.findById(id).get().getRequest().getId();
 		reqLineRepo.deleteById(id);
+		recalculateRequestTotal(requestId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
