@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface RequestLineRepository extends CrudRepository<RequestLine, Integer> {
 
-	Iterable<RequestLine> getAllByRequestId(int requestId);
+	Iterable<RequestLine> findAllByRequestId(int requestId);
 }

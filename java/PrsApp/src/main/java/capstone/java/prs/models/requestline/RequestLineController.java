@@ -101,7 +101,7 @@ public class RequestLineController {
 	
 	private void recalculateRequestTotal(int requestId) {
 		
-		Iterable<RequestLine> reqLines = reqLineRepo.getAllByRequestId(requestId);
+		Iterable<RequestLine> reqLines = reqLineRepo.findAllByRequestId(requestId);
 		double total = 0;
 		
 		for (RequestLine reqLine : reqLines) {
