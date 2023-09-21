@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RequestController {
 
 	@Autowired
-	private RequestRepository requestRepo;
+	public RequestRepository requestRepo;
 	
 	@GetMapping
 	public ResponseEntity<Iterable<Request>> getRequests() {

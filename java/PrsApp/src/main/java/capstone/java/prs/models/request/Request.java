@@ -1,5 +1,10 @@
 package capstone.java.prs.models.request;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import capstone.java.prs.models.requestline.RequestLine;
 import capstone.java.prs.models.user.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,6 +45,10 @@ public class Request {
 	@ManyToOne(optional=false)
 	@JoinColumn(name="userId")
 	private User user;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy="request")
+	private List<RequestLine> requestLines;
 
 	/* Getters & Setters */
 	public int getId() {
@@ -103,5 +113,13 @@ public class Request {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<RequestLine> getRequestLines() {
+		return requestLines;
+	}
+
+	public void setRequestLines(List<RequestLine> requestLines) {
+		this.requestLines = requestLines;
 	}
 }
