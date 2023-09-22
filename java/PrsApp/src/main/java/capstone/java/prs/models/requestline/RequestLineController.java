@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import capstone.java.prs.models.product.ProductRepository;
 import capstone.java.prs.models.request.Request;
 import capstone.java.prs.models.request.RequestRepository;
+import jakarta.persistence.EntityManager;
 
 @CrossOrigin
 @RestController
@@ -31,7 +31,7 @@ public class RequestLineController {
 	private RequestRepository requestRepo;
 	
 	@Autowired
-	private ProductRepository productRepo;
+	private EntityManager entityManager;
 	
 	@GetMapping
 	public ResponseEntity<Iterable<RequestLine>> getRequestLines() {
@@ -101,12 +101,13 @@ public class RequestLineController {
 	
 	private void recalculateRequestTotal(int requestId) {
 		
+		entityManager.clear();
 		Iterable<RequestLine> reqLines = reqLineRepo.findAllByRequestId(requestId);
 		double total = 0;
 		
 		for (RequestLine reqLine : reqLines) {
 			
-			total += productRepo.findById(reqLine.getProduct().getId()).get().getPrice() * reqLine.getQuantity();
+			total += reqLine.getProduct().getPrice() * reqLine.getQuantity();
 		}
 		
 		Request request = requestRepo.findById(requestId).get();
