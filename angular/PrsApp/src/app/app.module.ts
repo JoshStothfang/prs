@@ -10,6 +10,10 @@ import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { E404Component } from './core/e404/e404.component';
 import { LoginComponent } from './core/login/login.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { UserCreateComponent } from './user/user-create/user-create.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { LoginComponent } from './core/login/login.component';
     HomeComponent,
     AboutComponent,
     E404Component,
-    LoginComponent
+    LoginComponent,
+    UserListComponent,
+    UserDetailComponent,
+    UserCreateComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
