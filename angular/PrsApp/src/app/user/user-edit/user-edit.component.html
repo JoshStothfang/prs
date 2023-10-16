@@ -1,1 +1,41 @@
-<p>user-edit works!</p>
+<app-menu></app-menu>
+<div>
+    <p>user-edit works!</p>
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td><input [(ngModel)]="user!.id"></td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td><input [(ngModel)]="user!.username"></td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td><input [(ngModel)]="user!.firstname"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input [(ngModel)]="user!.lastname"></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input [(ngModel)]="user!.phone"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input [(ngModel)]="user!.email"></td>
+            </tr>
+            <tr>
+                <th>Reviewer?</th>
+                <td><input type="checkbox" [(ngModel)]="user!.isReviewer"></td>
+            </tr>
+            <tr>
+                <th>Admin?</th>
+                <td><input type="checkbox" [(ngModel)]="user!.isAdmin"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="send()">Save Changes</button>
+</div>
