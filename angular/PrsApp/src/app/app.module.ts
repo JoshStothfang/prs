@@ -9,6 +9,7 @@ import { MenuComponent } from './menu/menu/menu.component';
 import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { E404Component } from './core/e404/e404.component';
+import { LoginComponent } from './core/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { E404Component } from './core/e404/e404.component';
     MenuComponent,
     HomeComponent,
     AboutComponent,
-    E404Component
+    E404Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

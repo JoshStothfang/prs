@@ -3,9 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { E404Component } from './core/e404/e404.component';
 import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
+import { LoginComponent } from './core/login/login.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
+
+  { path: "login", component: LoginComponent },
 
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
