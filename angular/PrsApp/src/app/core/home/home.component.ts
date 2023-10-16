@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SystemService } from '../system.service';
 
 @Component({
   selector: 'app-home',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  constructor() { }
+  constructor(
+    private sysSvc: SystemService
+  ) { }
+
+  ngOnInit(): void {
+
+    if (!this.sysSvc.loggedIn()) return;
+  }
 }
