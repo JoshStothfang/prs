@@ -12,6 +12,7 @@
                 <th>Email</th>
                 <th>Reviewer?</th>
                 <th>Admin?</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
                 <td>{{ u.email }}</td>
                 <td>{{ u.isReviewer ? "Yes" : "No" }}</td>
                 <td>{{ u.isAdmin ? "Yes" : "No" }}</td>
+                <td><button routerLink="/user/detail/{{ u.id }}">Details</button></td>
             </tr>
         </tbody>
     </table>
