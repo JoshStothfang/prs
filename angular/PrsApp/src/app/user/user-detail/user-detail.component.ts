@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../user.class';
 import { SystemService } from 'src/app/core/system.service';
 import { UserService } from '../user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -16,8 +16,21 @@ export class UserDetailComponent {
   constructor(
     private sysSvc: SystemService,
     private route: ActivatedRoute,
-    private userSvc: UserService
+    private userSvc: UserService,
+    private router: Router
   ) { }
+
+  remove(): void {
+    this.userSvc.remove(this.user!.id).subscribe({
+      next: (res) => {
+        console.debug(res);
+        this.router.navigateByUrl("/user/list");
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 
   ngOnInit(): void {
 
