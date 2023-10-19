@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+<div>
+    <p>product-create works!</p>
+    <ng-container *ngIf="loaded">
+        <table>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td><input [(ngModel)]="product.id" disabled></td>
+                </tr>
+                <tr>
+                    <th>Part #</th>
+                    <td><input [(ngModel)]="product.partNbr"></td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td><input [(ngModel)]="product.name"></td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td><input [(ngModel)]="product.price"></td>
+                </tr>
+                <tr>
+                    <th>Unit</th>
+                    <td><input [(ngModel)]="product.unit"></td>
+                </tr>
+                <tr>
+                    <th>Photo Path</th>
+                    <td><input [(ngModel)]="product.photoPath"></td>
+                </tr>
+                <tr>
+                    <th>Vendor</th>
+                    <td>
+                        <select [(ngModel)]="product.vendorId">
+                            <option *ngFor="let v of vendors" value="{{ v.id }}">{{ v.name }}</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="send()">Create Product</button>
+    </ng-container>
+</div>

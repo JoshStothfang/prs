@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<div>
+    <p>product-list works!</p>
+    <ng-container *ngIf="loaded">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Part #</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Unit</th>
+                    <th>Vendor</th>
+                    <th>Details</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of products">
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.partNbr }}</td>
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.price | currency }}</td>
+                    <td>{{ p.unit }}</td>
+                    <td>{{ p.vendor?.name }}</td>
+                    <td><button routerLink="/product/detail/{{ p.id }}">Details</button></td>
+                    <td><button routerLink="/product/edit/{{ p.id }}">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button routerLink="/product/create">Create New Product</button>
+    </ng-container>
+</div>
