@@ -14,6 +14,10 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
+import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
+import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
+import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     UserListComponent,
     UserDetailComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    VendorCreateComponent,
+    VendorDetailComponent,
+    VendorEditComponent,
+    VendorListComponent
   ],
   imports: [
     BrowserModule,

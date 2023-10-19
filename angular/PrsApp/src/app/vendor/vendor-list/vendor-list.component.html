@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div>
+    <p>vendor-list works!</p>
+    <ng-container *ngIf="loaded">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Details</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of vendors">
+                    <td>{{ v.id }}</td>
+                    <td>{{ v.code }}</td>
+                    <td>{{ v.name }}</td>
+                    <td>{{ v.address }}</td>
+                    <td>{{ v.city }}</td>
+                    <td>{{ v.state }}</td>
+                    <td>{{ v.zip }}</td>
+                    <td>{{ v.phone }}</td>
+                    <td>{{ v.email }}</td>
+                    <td><button routerLink="/vendor/detail/{{ v.id }}">Details</button></td>
+                    <td><button routerLink="/vendor/edit/{{ v.id }}">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button routerLink="/vendor/create">Create New Vendor</button>
+    </ng-container>
+</div>
