@@ -38,6 +38,13 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="remove()">Delete User</button>
+        <ng-container *ngIf="!removeToggled">
+            <button (click)="toggleRemove()">Delete User</button>
+        </ng-container>
+        <ng-container *ngIf="removeToggled">
+            <p>Are you sure?</p>
+            <button (click)="remove()">Yes</button>
+            <button (click)="toggleRemove()">No</button>
+        </ng-container>
     </ng-container>
 </div>

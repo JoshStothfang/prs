@@ -15,12 +15,18 @@ export class UserDetailComponent {
 
   loaded: boolean = false;
 
+  removeToggled: boolean = false;
+
   constructor(
     private sysSvc: SystemService,
     private route: ActivatedRoute,
     private userSvc: UserService,
     private router: Router
   ) { }
+
+  toggleRemove(): void {
+    this.removeToggled = !this.removeToggled;
+  }
 
   remove(): void {
     this.userSvc.remove(this.user!.id).subscribe({
