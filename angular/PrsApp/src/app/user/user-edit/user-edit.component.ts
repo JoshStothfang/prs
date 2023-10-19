@@ -11,7 +11,9 @@ import { User } from '../user.class';
 })
 export class UserEditComponent {
 
-  user?: User;
+  user: User | null = null;
+
+  loaded: boolean = false;
 
   constructor(
     private sysSvc: SystemService,
@@ -42,6 +44,7 @@ export class UserEditComponent {
       next: (res) => {
         console.debug(res);
         this.user = res;
+        this.loaded = true;
       },
       error: (err) => {
         console.error(err);

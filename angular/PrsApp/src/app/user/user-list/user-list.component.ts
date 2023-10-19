@@ -12,6 +12,8 @@ export class UserListComponent {
 
   users: User[] = [];
 
+  loaded: boolean = false;
+
   constructor(
     private sysSvc: SystemService,
     private userSvc: UserService
@@ -25,6 +27,7 @@ export class UserListComponent {
       next: (res) => {
         console.debug(res);
         this.users = res;
+        this.loaded = true;
       },
       error: (err) => {
         console.error(err);

@@ -1,35 +1,37 @@
 <app-menu></app-menu>
 <div>
     <p>user-list works!</p>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Reviewer?</th>
-                <th>Admin?</th>
-                <th>Details</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let u of users">
-                <td>{{ u.id }}</td>
-                <td>{{ u.username }}</td>
-                <td>{{ u.firstname }}</td>
-                <td>{{ u.lastname }}</td>
-                <td>{{ u.phone }}</td>
-                <td>{{ u.email }}</td>
-                <td>{{ u.isReviewer ? "Yes" : "No" }}</td>
-                <td>{{ u.isAdmin ? "Yes" : "No" }}</td>
-                <td><button routerLink="/user/detail/{{ u.id }}">Details</button></td>
-                <td><button routerLink="/user/edit/{{ u.id }}">Edit</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <button routerLink="/user/create">Create New User</button>
+    <ng-container *ngIf="loaded">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Reviewer?</th>
+                    <th>Admin?</th>
+                    <th>Details</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of users">
+                    <td>{{ u.id }}</td>
+                    <td>{{ u.username }}</td>
+                    <td>{{ u.firstname }}</td>
+                    <td>{{ u.lastname }}</td>
+                    <td>{{ u.phone }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.isReviewer ? "Yes" : "No" }}</td>
+                    <td>{{ u.isAdmin ? "Yes" : "No" }}</td>
+                    <td><button routerLink="/user/detail/{{ u.id }}">Details</button></td>
+                    <td><button routerLink="/user/edit/{{ u.id }}">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button routerLink="/user/create">Create New User</button>
+    </ng-container>
 </div>

@@ -11,7 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserDetailComponent {
 
-  user?: User;
+  user: User | null = null;
+
+  loaded: boolean = false;
 
   constructor(
     private sysSvc: SystemService,
@@ -41,6 +43,7 @@ export class UserDetailComponent {
       next: (res) => {
         console.debug(res);
         this.user = res;
+        this.loaded = true;
       },
       error: (err) => {
         console.error(err);
