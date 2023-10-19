@@ -44,7 +44,7 @@ export class UserDetailComponent {
 
     if(!this.sysSvc.loggedIn()) return;
 
-    let id = this.route.snapshot.params["id"];
+    let id: number = this.route.snapshot.params["id"];
     this.userSvc.get(id).subscribe({
       next: (res) => {
         console.debug(res);
