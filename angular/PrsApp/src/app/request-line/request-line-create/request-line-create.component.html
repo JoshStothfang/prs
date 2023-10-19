@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div>
+    <p>request-line-create works!</p>
+    <ng-container>
+        <table>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td><input [(ngModel)]="requestLine.id" disabled></td>
+                </tr>
+                <tr>
+                    <th>Request ID</th>
+                    <td><input [(ngModel)]="requestLine.requestId" disabled></td>
+                </tr>
+                <tr>
+                    <th>Product</th>
+                    <td>
+                        <select [(ngModel)]="requestLine.productId">
+                            <option *ngFor="let p of products" value="{{ p.id }}">{{ p.name }}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td><input [(ngModel)]="productPrice" disabled></td>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <td><input type="number" [(ngModel)]="requestLine.quantity"></td>
+                </tr>
+                <tr>
+                    <th>Line Total</th>
+                    <td><input [(ngModel)]="loaded" disabled></td>
+                </tr>
+            </tbody>
+        </table>
+        <button>Create Request Line</button>
+    </ng-container>
+</div>

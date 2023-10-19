@@ -16,6 +16,11 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
+import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { RequestEditComponent } from './request/request-edit/request-edit.component';
+import { RequestLineCreateComponent } from './request-line/request-line-create/request-line-create.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -39,6 +44,13 @@ const routes: Routes = [
   { path: "product/detail/:id", component: ProductDetailComponent },
   { path: "product/create", component: ProductCreateComponent },
   { path: "product/edit/:id", component: ProductEditComponent },
+
+  { path: "request/list", component: RequestListComponent },
+  { path: "request/detail/:id", component: RequestDetailComponent },
+  { path: "request/create", component: RequestCreateComponent },
+  { path: "request/edit/:id", component: RequestEditComponent },
+
+  { path: "requestline/create/:requestId", component: RequestLineCreateComponent },
 
   { path: "**", component: E404Component }
 ];
