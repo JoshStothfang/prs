@@ -23,6 +23,8 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestLineCreateComponent } from './request-line/request-line-create/request-line-create.component';
 import { RequestLineEditComponent } from './request-line/request-line-edit/request-line-edit.component';
 import { RequestLinesComponent } from './request/request-lines/request-lines.component';
+import { RequestReviewListComponent } from './request/request-review-list/request-review-list.component';
+import { RequestReviewItemComponent } from './request/request-review-item/request-review-item.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -52,6 +54,8 @@ const routes: Routes = [
   { path: "request/create", component: RequestCreateComponent },
   { path: "request/edit/:id", component: RequestEditComponent },
   { path: "request/lines/:id", component: RequestLinesComponent },
+  { path: "request/review", component: RequestReviewListComponent },
+  { path: "request/review/:id", component: RequestReviewItemComponent },
 
   { path: "requestline/create/:requestId", component: RequestLineCreateComponent },
   { path: "requestline/edit/:id", component: RequestLineEditComponent },

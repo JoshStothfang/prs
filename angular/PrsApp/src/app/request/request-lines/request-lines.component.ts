@@ -30,7 +30,7 @@ export class RequestLinesComponent {
   ) { }
 
   reviewRequest(): void {
-    this.reqSvc.review(this.request!.id, this.request!).subscribe({
+    this.reqSvc.review(this.request!).subscribe({
       next: (res) => {
         console.debug(res);
         this.refresh();

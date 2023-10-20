@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div>
-    <p>request-list works!</p>
+    <p>request-review-list works!</p>
     <ng-container *ngIf="loaded">
         <table>
             <thead>
@@ -13,9 +13,7 @@
                     <th>Status</th>
                     <th>Total</th>
                     <th>User</th>
-                    <th>Details</th>
-                    <th>Edit</th>
-                    <th>Lines</th>
+                    <th>Review</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,13 +26,9 @@
                     <td>{{ r.status }}</td>
                     <td>{{ r.total | currency }}</td>
                     <td>{{ r.user?.firstname + " " + r.user?.lastname  }}</td>
-                    <td><button routerLink="/request/detail/{{ r.id }}">Details</button></td>
-                    <td><button routerLink="/request/edit/{{ r.id }}">Edit</button></td>
-                    <td><button routerLink="/request/lines/{{ r.id }}">Lines</button></td>
+                    <td><button routerLink="/request/review/{{ r.id }}">Review</button></td>
                 </tr>
             </tbody>
         </table>
-        <button routerLink="/request/create">Create New Request</button>
-        <button routerLink="/request/review">Review Requests</button>
     </ng-container>
 </div>

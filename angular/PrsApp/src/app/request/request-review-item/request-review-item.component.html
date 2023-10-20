@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+<div>
+    <p>request-review-item works!</p>
+    <ng-container *ngIf="loaded">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Description</th>
+                    <th>Justification</th>
+                    <th>Rejection Reason</th>
+                    <th>Delivery Mode</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ request!.id }}</td>
+                    <td>{{ request!.description }}</td>
+                    <td>{{ request!.justification }}</td>
+                    <td>{{ request!.rejectionReason }}</td>
+                    <td>{{ request!.deliveryMode }}</td>
+                    <td>{{ request!.status }}</td>
+                    <td>{{ request!.total | currency }}</td>
+                    <td>{{ request!.user?.firstname + " " + request!.user?.lastname  }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Line ID</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Line Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rl of request!.requestLines">
+                    <td>{{ rl.id }}</td>
+                    <td>{{ rl.product?.name }}</td>
+                    <td>{{ rl.product?.price | currency }}</td>
+                    <td>{{ rl.quantity }}</td>
+                    <td>{{ rl.product?.price! * rl.quantity | currency }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-container *ngIf="!rejectToggled">
+            <button (click)="approve()">Approve</button>
+            <button (click)="toggleReject()">Reject</button>
+        </ng-container>
+        <ng-container *ngIf="rejectToggled">
+            <input placeholder="Rejection Reason (required)" [(ngModel)]="rejectionReason">
+            <button (click)="reject()">Submit Rejection</button>
+            <button (click)="toggleReject()">Cancel</button>
+        </ng-container>
+    </ng-container>
+</div>
