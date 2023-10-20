@@ -15,6 +15,7 @@
                     <th>User</th>
                     <th>Details</th>
                     <th>Edit</th>
+                    <th>Lines</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@
                     <td>{{ r.user?.firstname + " " + r.user?.lastname  }}</td>
                     <td><button routerLink="/request/detail/{{ r.id }}">Details</button></td>
                     <td><button routerLink="/request/edit/{{ r.id }}">Edit</button></td>
+                    <td><button routerLink="/request/lines/{{ r.id }}">Lines</button></td>
                 </tr>
             </tbody>
         </table>

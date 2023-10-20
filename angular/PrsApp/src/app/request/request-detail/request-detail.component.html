@@ -3,48 +3,26 @@
     <p>request-detail works!</p>
     <ng-container *ngIf="loaded">
         <table>
-            <thead>
+            <tbody>
                 <tr>
                     <th>ID</th>
-                    <th>Description</th>
-                    <th>Justification</th>
-                    <th>Rejection Reason</th>
-                    <th>Delivery Mode</th>
-                    <th>Status</th>
-                    <th>Total</th>
-                    <th>User</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
                     <td><input [(ngModel)]="request!.id" disabled></td>
-                    <td><input [(ngModel)]="request!.description" disabled></td>
-                    <td><input [(ngModel)]="request!.justification" disabled></td>
-                    <td><input [(ngModel)]="request!.rejectionReason" disabled></td>
-                    <td><input [(ngModel)]="request!.deliveryMode" disabled></td>
-                    <td><input [(ngModel)]="request!.status" disabled></td>
-                    <td><input [(ngModel)]="request!.total" disabled></td>
-                    <td><input value="{{ request!.user?.firstname + ' ' + request!.user?.lastname }}" disabled></td>
                 </tr>
-            </tbody>
-        </table>
-        <table>
-            <thead>
                 <tr>
-                    <th>Line ID</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Line Total</th>
+                    <th>Description</th>
+                    <td><input [(ngModel)]="request!.description" disabled></td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let rl of request!.requestLines">
-                    <td>{{ rl.id }}</td>
-                    <td>{{ rl.product?.name }}</td>
-                    <td>{{ rl.product?.price | currency }}</td>
-                    <td>{{ rl.quantity }}</td>
-                    <td>{{ rl.product?.price! * rl.quantity | currency }}</td>
+                <tr>
+                    <th>Justification</th>
+                    <td><input [(ngModel)]="request!.justification" disabled></td>
+                </tr>
+                <tr>
+                    <th>Delivery Mode</th>
+                    <td><input [(ngModel)]="request!.deliveryMode" disabled></td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td><input [(ngModel)]="request!.status" disabled></td>
                 </tr>
             </tbody>
         </table>

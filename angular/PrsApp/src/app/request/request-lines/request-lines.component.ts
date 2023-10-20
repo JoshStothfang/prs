@@ -1,34 +1,45 @@
 import { Component } from '@angular/core';
 import { Request } from '../request.class';
+import { ActivatedRoute } from '@angular/router';
 import { SystemService } from 'src/app/core/system.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from '../request.service';
 import { RequestLineService } from 'src/app/request-line/request-line.service';
 
 @Component({
-  selector: 'app-request-edit',
-  templateUrl: './request-edit.component.html',
-  styleUrls: ['./request-edit.component.css']
+  selector: 'app-request-lines',
+  templateUrl: './request-lines.component.html',
+  styleUrls: ['./request-lines.component.css']
 })
-export class RequestEditComponent {
+export class RequestLinesComponent {
+
+  id: number = 0;
 
   request: Request | null = null;
 
   loaded: boolean = false;
 
+  removeReqLineToggled: boolean = false;
+
+  toggledReqLineId: number = 0;
+
   constructor(
     private sysSvc: SystemService,
     private route: ActivatedRoute,
     private reqSvc: RequestService,
-    private router: Router
+    private reqLineSvc: RequestLineService
   ) { }
 
-  send(): void {
+  toggleRemoveReqLine(reqLineId: number): void {
+    this.removeReqLineToggled = !this.removeReqLineToggled;
+    this.toggledReqLineId = reqLineId;
+  }
 
-    this.reqSvc.change(this.request!).subscribe({
+  removeReqLine(id: number): void {
+
+    this.reqLineSvc.remove(id).subscribe({
       next: (res) => {
         console.debug(res);
-        this.router.navigateByUrl("/request/list");
+        this.refresh();
       },
       error: (err) => {
         console.error(err);
@@ -40,8 +51,16 @@ export class RequestEditComponent {
 
     if (!this.sysSvc.loggedIn()) return;
 
-    let id = this.route.snapshot.params["id"];
-    this.reqSvc.get(id).subscribe({
+    this.id = this.route.snapshot.params["id"];
+
+    this.refresh();
+  }
+
+  refresh(): void {
+
+    this.loaded = false;
+
+    this.reqSvc.get(this.id).subscribe({
       next: (res) => {
         console.debug(res);
         this.request = res;

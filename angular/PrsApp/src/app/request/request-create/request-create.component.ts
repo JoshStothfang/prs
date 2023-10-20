@@ -24,7 +24,7 @@ export class RequestCreateComponent {
     this.reqSvc.create(this.request).subscribe({
       next: (res) => {
         console.debug(res);
-        this.router.navigateByUrl(`/request/edit/${res.id}`);
+        this.router.navigateByUrl("/request/list");
       },
       error: (err) => {
         console.error(err);
