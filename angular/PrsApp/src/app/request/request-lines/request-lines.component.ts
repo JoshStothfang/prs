@@ -29,6 +29,18 @@ export class RequestLinesComponent {
     private reqLineSvc: RequestLineService
   ) { }
 
+  reviewRequest(): void {
+    this.reqSvc.review(this.request!.id, this.request!).subscribe({
+      next: (res) => {
+        console.debug(res);
+        this.refresh();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
   toggleRemoveReqLine(reqLineId: number): void {
     this.removeReqLineToggled = !this.removeReqLineToggled;
     this.toggledReqLineId = reqLineId;

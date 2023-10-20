@@ -13,6 +13,7 @@
                     <th>Status</th>
                     <th>Total</th>
                     <th>User</th>
+                    <th>Review</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,8 +24,9 @@
                     <td>{{ request!.rejectionReason }}</td>
                     <td>{{ request!.deliveryMode }}</td>
                     <td>{{ request!.status }}</td>
-                    <td>{{ request!.total }}</td>
+                    <td>{{ request!.total | currency}}</td>
                     <td>{{ request!.user?.firstname + " " + request!.user?.lastname }}</td>
+                    <td><button (click)="reviewRequest()">Submit for Review</button></td>
                 </tr>
             </tbody>
         </table>
