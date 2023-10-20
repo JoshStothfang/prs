@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SystemService } from 'src/app/core/system.service';
 import { RequestLine } from '../request-line.class';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/product/product.service';
 import { Product } from 'src/app/product/product.class';
+import { RequestLineService } from '../request-line.service';
 
 @Component({
   selector: 'app-request-line-create',
@@ -20,11 +21,36 @@ export class RequestLineCreateComponent {
 
   productPrice: number = 0;
 
+  lineTotal: number = 0;
+
   constructor(
     private sysSvc: SystemService,
     private route: ActivatedRoute,
-    private prodSvc: ProductService
+    private prodSvc: ProductService,
+    private reqLineSvc: RequestLineService,
+    private router: Router
   ) { }
+
+  refreshPrice(): void {
+    
+    this.requestLine.productId = +this.requestLine.productId;
+    
+    this.productPrice = this.products.find(p => p.id === this.requestLine.productId)?.price as number;
+    this.lineTotal = this.productPrice * this.requestLine.quantity;
+  }
+
+  send(): void {
+
+    this.reqLineSvc.create(this.requestLine).subscribe({
+      next: (res) => {
+        console.debug(res);
+        this.router.navigateByUrl(`/request/detail/${this.requestLine.requestId}`);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 
   ngOnInit(): void {
 

@@ -47,8 +47,17 @@
                     <td>{{ rl.product?.price | currency }}</td>
                     <td>{{ rl.quantity }}</td>
                     <td>{{ rl.product?.price! * rl.quantity | currency }}</td>
-                    <td><button>Edit</button></td>
-                    <td><button (click)="removeReqLine(rl.id)">Delete</button></td>
+                    <td><button routerLink="/requestline/edit/{{ rl.id }}">Edit</button></td>
+                    <td>
+                        <div *ngIf="!removeReqLineToggled || toggledReqLineId !== rl.id">
+                            <button (click)="toggleRemoveReqLine(rl.id)">Delete</button>
+                        </div>
+                        <div *ngIf="removeReqLineToggled && toggledReqLineId === rl.id">
+                            <p>Are you sure?</p>
+                            <button (click)="removeReqLine(rl.id)">Yes</button>
+                            <button (click)="toggleRemoveReqLine(rl.id)">No</button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

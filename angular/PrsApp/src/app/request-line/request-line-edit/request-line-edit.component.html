@@ -1,21 +1,21 @@
 <app-menu></app-menu>
 <div>
-    <p>request-line-create works!</p>
+    <p>request-line-edit works!</p>
     <ng-container *ngIf="loaded">
         <table>
             <tbody>
                 <tr>
                     <th>ID</th>
-                    <td><input [(ngModel)]="requestLine.id" disabled></td>
+                    <td><input [(ngModel)]="requestLine!.id" disabled></td>
                 </tr>
                 <tr>
                     <th>Request ID</th>
-                    <td><input [(ngModel)]="requestLine.requestId" disabled></td>
+                    <td><input [(ngModel)]="requestLine!.requestId" disabled></td>
                 </tr>
                 <tr>
                     <th>Product</th>
                     <td>
-                        <select (change)="refreshPrice()" [(ngModel)]="requestLine.productId">
+                        <select (change)="refreshPrice()" [(ngModel)]="requestLine!.productId">
                             <option *ngFor="let p of products" value="{{ p.id }}">{{ p.name }}</option>
                         </select>
                     </td>
@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <th>Quantity</th>
-                    <td><input type="number" (change)="refreshPrice()" [(ngModel)]="requestLine.quantity"></td>
+                    <td><input type="number" (change)="refreshPrice()" [(ngModel)]="requestLine!.quantity"></td>
                 </tr>
                 <tr>
                     <th>Line Total</th>
@@ -34,6 +34,6 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="send()">Create Request Line</button>
+        <button (click)="send()">Save Changes</button>
     </ng-container>
 </div>

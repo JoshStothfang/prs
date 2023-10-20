@@ -1,1 +1,29 @@
-<p>request-create works!</p>
+<app-menu></app-menu>
+<div>
+    <p>request-create works!</p>
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td><input [(ngModel)]="request.id" disabled></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td><input [(ngModel)]="request.description"></td>
+            </tr>
+            <tr>
+                <th>Justification</th>
+                <td><input [(ngModel)]="request.justification"></td>
+            </tr>
+            <tr>
+                <th>Delivery Mode</th>
+                <td><input [(ngModel)]="request.deliveryMode"></td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td><input [(ngModel)]="request.status" disabled></td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="send()">Create Request</button>
+</div>

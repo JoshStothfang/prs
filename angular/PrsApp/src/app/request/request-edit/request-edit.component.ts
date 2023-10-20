@@ -18,12 +18,21 @@ export class RequestEditComponent {
 
   loaded: boolean = false;
 
+  removeReqLineToggled: boolean = false;
+
+  toggledReqLineId: number = 0;
+
   constructor(
     private sysSvc: SystemService,
     private route: ActivatedRoute,
     private reqSvc: RequestService,
     private reqLineSvc: RequestLineService
   ) { }
+
+  toggleRemoveReqLine(reqLineId: number): void {
+    this.removeReqLineToggled = !this.removeReqLineToggled;
+    this.toggledReqLineId = reqLineId;
+  }
 
   removeReqLine(id: number): void {
 
