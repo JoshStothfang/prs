@@ -44,7 +44,7 @@ export class RequestLineCreateComponent {
     this.reqLineSvc.create(this.requestLine).subscribe({
       next: (res) => {
         console.debug(res);
-        this.router.navigateByUrl(`/request/detail/${this.requestLine.requestId}`);
+        this.router.navigateByUrl(`/request/lines/${this.requestLine.requestId}`);
       },
       error: (err) => {
         console.error(err);
