@@ -54,7 +54,7 @@ namespace PrsApp.Controllers
         [HttpGet("reviews/{userId}")]
         public async Task<ActionResult<IEnumerable<Request>>> GetReviewRequests(int userId)
         {
-            return await _context.Requests.Where(x => x.Status == "REVIEW" && x.UserId != userId).ToListAsync();
+            return await _context.Requests.Where(x => x.Status == "REVIEW" && x.UserId != userId).Include(x => x.User).ToListAsync();
         }
 
         // PUT: api/Requests/5
