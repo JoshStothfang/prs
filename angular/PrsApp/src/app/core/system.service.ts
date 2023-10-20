@@ -13,7 +13,7 @@ export class SystemService {
   constructor(
     private router: Router
   ) { 
-
+    
     //temporary loggedInUser for testing purposes
     this.loggedInUser = new User();
     this.loggedInUser.id = 1;

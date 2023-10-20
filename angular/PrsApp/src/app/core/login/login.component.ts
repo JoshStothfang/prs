@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
+import { SystemService } from '../system.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +10,27 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  username: string = "";
+
+  password: string = "";
+
+  constructor(
+    private userSvc: UserService,
+    private sysSvc: SystemService,
+    private router: Router
+  ) { }
+
+  send(): void {
+
+    this.userSvc.login(this.username, this.password).subscribe({
+      next: (res) => {
+        console.debug(res);
+        this.sysSvc.loggedInUser = res;
+        this.router.navigateByUrl("/home");
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 }

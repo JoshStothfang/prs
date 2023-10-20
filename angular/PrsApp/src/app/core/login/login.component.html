@@ -1,1 +1,8 @@
-<p>login works!</p>
+<div>
+    <p>login works!</p>
+    <p>Username:</p>
+    <input [(ngModel)]="username">
+    <p>Password:</p>
+    <input type="password" [(ngModel)]="password">
+    <button (click)="send()">Login</button>
+</div>
