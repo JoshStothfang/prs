@@ -17,14 +17,14 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input [(ngModel)]="request!.id" disabled></td>
-                    <td><input [(ngModel)]="request!.description" disabled></td>
-                    <td><input [(ngModel)]="request!.justification" disabled></td>
-                    <td><input [(ngModel)]="request!.rejectionReason" disabled></td>
-                    <td><input [(ngModel)]="request!.deliveryMode" disabled></td>
-                    <td><input [(ngModel)]="request!.status" disabled></td>
-                    <td><input [(ngModel)]="request!.total" disabled></td>
-                    <td><input value="{{ request!.user?.firstname + ' ' + request!.user?.lastname }}" disabled></td>
+                    <td>{{ request!.id }}</td>
+                    <td>{{ request!.description }}</td>
+                    <td>{{ request!.justification }}</td>
+                    <td>{{ request!.rejectionReason }}</td>
+                    <td>{{ request!.deliveryMode }}</td>
+                    <td>{{ request!.status }}</td>
+                    <td>{{ request!.total }}</td>
+                    <td>{{ request!.user?.firstname + " " + request!.user?.lastname }}</td>
                 </tr>
             </tbody>
         </table>
