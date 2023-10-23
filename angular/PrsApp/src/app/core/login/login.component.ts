@@ -28,7 +28,7 @@ export class LoginComponent {
       next: (res) => {
         console.debug(res);
         this.sysSvc.loggedInUser = res;
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl("/request/list");
       },
       error: (err) => {
         console.error(err);
