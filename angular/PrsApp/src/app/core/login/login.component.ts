@@ -33,6 +33,8 @@ export class LoginComponent {
       error: (err) => {
         console.error(err);
         this.incorrect = true;
+        this.username = "";
+        this.password = "";
       }
     });
   }
