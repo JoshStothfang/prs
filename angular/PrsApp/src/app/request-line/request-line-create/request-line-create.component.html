@@ -2,7 +2,7 @@
 <div>
     <p>request-line-create works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped-columns table-sm">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -34,6 +34,6 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="send()">Create Request Line</button>
+        <button class="btn btn-primary" (click)="send()">Create Request Line</button>
     </ng-container>
 </div>

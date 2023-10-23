@@ -2,7 +2,7 @@
 <div>
     <p>request-detail works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped-columns table-sm">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -17,6 +17,10 @@
                     <td><input [(ngModel)]="request!.justification" disabled></td>
                 </tr>
                 <tr>
+                    <th>Rejection Reason</th>
+                    <td><input [(ngModel)]="request!.rejectionReason" disabled></td>
+                </tr>
+                <tr>
                     <th>Delivery Mode</th>
                     <td><input [(ngModel)]="request!.deliveryMode" disabled></td>
                 </tr>
@@ -24,15 +28,23 @@
                     <th>Status</th>
                     <td><input [(ngModel)]="request!.status" disabled></td>
                 </tr>
+                <tr>
+                    <th>Total</th>
+                    <td><input [(ngModel)]="request!.total" disabled></td>
+                </tr>
+                <tr>
+                    <th>User</th>
+                    <td><input [(ngModel)]="request!.user!.username" disabled></td>
+                </tr>
             </tbody>
         </table>
         <ng-container *ngIf="!removeToggled">
-            <button (click)="toggleRemove()">Delete Request</button>
+            <button class="btn btn-danger" (click)="toggleRemove()">Delete Request</button>
         </ng-container>
         <ng-container *ngIf="removeToggled">
             <p>Are you sure?</p>
-            <button (click)="remove()">Yes</button>
-            <button (click)="toggleRemove()">No</button>
+            <button class="btn btn-danger" (click)="remove()">Yes</button>
+            <button class="btn btn-primary" (click)="toggleRemove()">No</button>
         </ng-container>
     </ng-container>
 </div>

@@ -1,0 +1,17 @@
+ul {
+    width: 100%;
+    border: 1px solid black;
+    background-color: #454545;
+}
+li {
+    display: inline-block;
+    width: 16.66%;
+    text-align: center;
+}
+li a {
+    color: silver;
+    text-decoration: none;
+}
+li a:hover {
+    color: white;
+}

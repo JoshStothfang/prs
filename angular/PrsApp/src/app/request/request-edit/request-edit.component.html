@@ -2,7 +2,7 @@
 <div>
     <p>request-edit works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped-columns table-sm">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -17,6 +17,10 @@
                     <td><input [(ngModel)]="request!.justification"></td>
                 </tr>
                 <tr>
+                    <th>Rejection Reason</th>
+                    <td><input [(ngModel)]="request!.rejectionReason" disabled></td>
+                </tr>
+                <tr>
                     <th>Delivery Mode</th>
                     <td><input [(ngModel)]="request!.deliveryMode"></td>
                 </tr>
@@ -24,8 +28,16 @@
                     <th>Status</th>
                     <td><input [(ngModel)]="request!.status" disabled></td>
                 </tr>
+                <tr>
+                    <th>Total</th>
+                    <td><input [(ngModel)]="request!.total" disabled></td>
+                </tr>
+                <tr>
+                    <th>User</th>
+                    <td><input [(ngModel)]="request!.user!.username" disabled></td>
+                </tr>
             </tbody>
         </table>
-        <button (click)="send()">Save Changes</button>
+        <button class="btn btn-primary" (click)="send()">Save Changes</button>
     </ng-container>
 </div>

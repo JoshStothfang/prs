@@ -2,7 +2,7 @@
 <div>
     <p>request-list works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped table-sm">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -27,14 +27,14 @@
                     <td>{{ r.deliveryMode }}</td>
                     <td>{{ r.status }}</td>
                     <td>{{ r.total | currency }}</td>
-                    <td>{{ r.user?.firstname + " " + r.user?.lastname  }}</td>
-                    <td><button routerLink="/request/detail/{{ r.id }}">Details</button></td>
-                    <td><button routerLink="/request/edit/{{ r.id }}">Edit</button></td>
-                    <td><button routerLink="/request/lines/{{ r.id }}">Lines</button></td>
+                    <td>{{ r.user?.username  }}</td>
+                    <td><button class="btn btn-primary btn-sm" routerLink="/request/detail/{{ r.id }}">Details</button></td>
+                    <td><button class="btn btn-primary btn-sm" routerLink="/request/edit/{{ r.id }}">Edit</button></td>
+                    <td><button class="btn btn-primary btn-sm" routerLink="/request/lines/{{ r.id }}">Lines</button></td>
                 </tr>
             </tbody>
         </table>
-        <button routerLink="/request/create">Create New Request</button>
-        <button routerLink="/request/review">Review Requests</button>
+        <button class="btn btn-primary" routerLink="/request/create">Create New Request</button>
+        <button class="btn btn-primary" routerLink="/request/review">Review Requests</button>
     </ng-container>
 </div>

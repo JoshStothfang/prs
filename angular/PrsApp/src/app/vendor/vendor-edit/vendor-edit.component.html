@@ -2,7 +2,7 @@
 <div>
     <p>vendor-edit works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped-columns table-sm">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -42,6 +42,6 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="send()">Save Changes</button>
+        <button class="btn btn-primary" (click)="send()">Save Changes</button>
     </ng-container>    
 </div>

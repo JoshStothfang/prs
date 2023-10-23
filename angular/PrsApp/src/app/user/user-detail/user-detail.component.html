@@ -2,7 +2,7 @@
 <div>
     <p>user-detail works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped-columns table-sm">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -39,12 +39,12 @@
             </tbody>
         </table>
         <ng-container *ngIf="!removeToggled">
-            <button (click)="toggleRemove()">Delete User</button>
+            <button class="btn btn-danger" (click)="toggleRemove()">Delete User</button>
         </ng-container>
         <ng-container *ngIf="removeToggled">
             <p>Are you sure?</p>
-            <button (click)="remove()">Yes</button>
-            <button (click)="toggleRemove()">No</button>
+            <button class="btn btn-danger" (click)="remove()">Yes</button>
+            <button class="btn btn-primary" (click)="toggleRemove()">No</button>
         </ng-container>
     </ng-container>
 </div>

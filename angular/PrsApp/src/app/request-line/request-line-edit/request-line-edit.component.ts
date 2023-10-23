@@ -33,8 +33,10 @@ export class RequestLineEditComponent {
 
   refreshPrice(): void {
     
+    if (!this.requestLine) return;
     this.requestLine!.productId = +this.requestLine!.productId;
     
+    if (this.products.length === 0) return;
     this.productPrice = this.products.find(p => p.id === this.requestLine!.productId)!.price;
     this.lineTotal = this.productPrice * this.requestLine!.quantity;
   }
@@ -44,7 +46,7 @@ export class RequestLineEditComponent {
     this.reqLineSvc.change(this.requestLine!).subscribe({
       next: (res) => {
         console.debug(res);
-        this.router.navigateByUrl(`/request/detail/${this.requestLine!.requestId}`);
+        this.router.navigateByUrl(`/request/lines/${this.requestLine!.requestId}`);
       },
       error: (err) => {
         console.error(err);

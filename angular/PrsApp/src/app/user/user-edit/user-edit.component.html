@@ -2,15 +2,19 @@
 <div>
     <p>user-edit works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped-columns table-sm">
             <tbody>
                 <tr>
                     <th>ID</th>
-                    <td><input [(ngModel)]="user!.id"></td>
+                    <td><input [(ngModel)]="user!.id" disabled></td>
                 </tr>
                 <tr>
                     <th>Username</th>
                     <td><input [(ngModel)]="user!.username"></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td><input type="password" [(ngModel)]="user!.password"></td>
                 </tr>
                 <tr>
                     <th>First Name</th>
@@ -38,6 +42,6 @@
                 </tr>
             </tbody>
         </table>
-        <button (click)="send()">Save Changes</button>
+        <button class="btn btn-primary" (click)="send()">Save Changes</button>
     </ng-container>
 </div>

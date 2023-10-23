@@ -14,6 +14,8 @@ export class LoginComponent {
 
   password: string = "";
 
+  incorrect: boolean = false;
+
   constructor(
     private userSvc: UserService,
     private sysSvc: SystemService,
@@ -30,6 +32,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.error(err);
+        this.incorrect = true;
       }
     });
   }

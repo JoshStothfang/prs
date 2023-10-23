@@ -2,13 +2,12 @@
 <div>
     <p>request-review-list works!</p>
     <ng-container *ngIf="loaded">
-        <table>
+        <table class="table table-striped table-sm">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Description</th>
                     <th>Justification</th>
-                    <th>Rejection Reason</th>
                     <th>Delivery Mode</th>
                     <th>Status</th>
                     <th>Total</th>
@@ -21,12 +20,11 @@
                     <td>{{ r.id }}</td>
                     <td>{{ r.description }}</td>
                     <td>{{ r.justification }}</td>
-                    <td>{{ r.rejectionReason }}</td>
                     <td>{{ r.deliveryMode }}</td>
                     <td>{{ r.status }}</td>
                     <td>{{ r.total | currency }}</td>
-                    <td>{{ r.user?.firstname + " " + r.user?.lastname  }}</td>
-                    <td><button routerLink="/request/review/{{ r.id }}">Review</button></td>
+                    <td>{{ r.user?.username  }}</td>
+                    <td><button class="btn btn-primary btn-sm" routerLink="/request/review/{{ r.id }}">Review</button></td>
                 </tr>
             </tbody>
         </table>
