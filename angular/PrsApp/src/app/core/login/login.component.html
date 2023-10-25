@@ -5,13 +5,13 @@
             <tr>
                 <th>Username</th>
                 <td>
-                    <input [(ngModel)]="username">
+                    <input (keyup.enter)="send()" id="username" [(ngModel)]="username">
                 </td>
             </tr>
             <tr>
                 <th>Password</th>
                 <td>
-                    <input type="password" [(ngModel)]="password">
+                    <input (keyup.enter)="send()" type="password" [(ngModel)]="password">
                 </td>
             </tr>
         </tbody>

@@ -35,6 +35,7 @@ export class LoginComponent {
         this.incorrect = true;
         this.username = "";
         this.password = "";
+        document.getElementById("username")!.focus();
       }
     });
   }
