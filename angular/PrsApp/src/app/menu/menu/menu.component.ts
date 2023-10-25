@@ -8,6 +8,8 @@ import { Menu } from '../menu.class';
 })
 export class MenuComponent {
 
+  menuWidth: string = "";
+
   menus: Menu[] = [
     new Menu("Home", "/home"),
     new Menu("About", "/about"),
@@ -16,4 +18,9 @@ export class MenuComponent {
     new Menu("Products", "/product/list"),
     new Menu("Requests", "/request/list")
   ];
+
+  ngOnInit(): void {
+
+    this.menuWidth = `${100 / this.menus.length}%`;
+  }
 }
