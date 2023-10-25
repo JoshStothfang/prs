@@ -1,0 +1,7 @@
+div {
+    width: 50%;
+    display: inline-block;
+}
+div#right {
+    text-align: right;
+}

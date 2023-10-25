@@ -10,13 +10,12 @@ table {
     margin-right: auto;
 }
 h1, button {
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 0;
 }
 .warning {
     color: red;
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 0;
 }
-
 
 .login-form td, .login-form th {
     padding: 0.5rem 1rem;
