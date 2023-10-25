@@ -1,13 +1,21 @@
 <div id="component">
     <h1>PRS</h1>
-    <div>
-        <span>Username</span>
-        <input [(ngModel)]="username">
-    </div>
-    <div>
-        <span>Password</span>
-        <input type="password" [(ngModel)]="password">
-    </div>
+    <table class="login-form">
+        <tbody>
+            <tr>
+                <th>Username</th>
+                <td>
+                    <input [(ngModel)]="username">
+                </td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>
+                    <input type="password" [(ngModel)]="password">
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <button class="btn btn-primary" (click)="send()">Login</button>
-    <p *ngIf="incorrect" class="warning">Username or Password is incorrect</p>
+    <p *ngIf="incorrect" class="warning">Incorrect Username or Password</p>
 </div>

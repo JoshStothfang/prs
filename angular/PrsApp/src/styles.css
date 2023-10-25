@@ -1,8 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    width: 90%;
-    margin: 1em 5%;
+body, body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-spacing: 0;
 }
-button {
-    margin: 3px;
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+h1, button {
+    margin: 0.5rem 1rem;
+}
+.warning {
+    color: red;
+    margin: 0.5rem 1rem;
+}
+
+
+.login-form td, .login-form th {
+    padding: 0.5rem 1rem;
+}
+.login-form tbody th {
+    text-align: right;
 }
