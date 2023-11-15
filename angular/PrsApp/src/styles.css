@@ -26,3 +26,7 @@ h1, button {
 .login-form tbody th {
     text-align: right;
 }
+
+td {
+    vertical-align: middle;
+}
