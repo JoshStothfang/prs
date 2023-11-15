@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +32,11 @@ import { RequestLinesComponent } from './request/request-lines/request-lines.com
 import { RequestReviewListComponent } from './request/request-review-list/request-review-list.component';
 import { RequestReviewItemComponent } from './request/request-review-item/request-review-item.component';
 import { HeaderComponent } from './header/header.component';
+import { AppInitService } from './app-init.service';
+
+const startupServiceFactory = (appinit: AppInitService) => {
+  return () => appinit.getSettings();
+}
 
 @NgModule({
   declarations: [
@@ -70,7 +75,14 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AppInitService, {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [AppInitService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
