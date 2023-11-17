@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div>
-    <p>vendor-detail works!</p>
+    <h4>Vendor Details</h4>
     <ng-container *ngIf="loaded">
         <table class="table table-striped-columns table-sm">
             <tbody>
@@ -42,12 +42,15 @@
                 </tr>
             </tbody>
         </table>
+        <div>
+            <button class="btn btn-primary" routerLink="/vendor/edit/{{ vendor!.id }}">Edit Vendor</button>
+        </div>
         <ng-container *ngIf="!removeToggled">
             <button class="btn btn-danger" (click)="toggleRemove()">Delete Vendor</button>
         </ng-container>
         <ng-container *ngIf="removeToggled">
             <p>Are you sure?</p>
-            <button class="btn btn-danger" (click)="remove()">Yes</button>
+            <button class="btn btn-danger btn-space" (click)="remove()">Yes</button>
             <button class="btn btn-primary" (click)="toggleRemove()">No</button>
         </ng-container>
     </ng-container>
