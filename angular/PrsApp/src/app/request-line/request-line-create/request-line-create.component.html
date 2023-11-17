@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div>
-    <p>request-line-create works!</p>
+    <h4>Create New Request Line</h4>
     <ng-container *ngIf="loaded">
         <table class="table table-striped-columns table-sm">
             <tbody>
@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <th>Quantity</th>
-                    <td><input type="number" (change)="refreshPrice()" [(ngModel)]="requestLine.quantity"></td>
+                    <td><input type="number" min="1" (change)="refreshPrice()" [(ngModel)]="requestLine.quantity"></td>
                 </tr>
                 <tr>
                     <th>Line Total</th>
