@@ -27,6 +27,14 @@ h1, button {
     text-align: right;
 }
 
+h4 {
+    margin: 0.5rem 0;
+}
+
+.btn-space {
+    margin-right: 0.5rem;
+}
+
 td {
     vertical-align: middle;
 }
