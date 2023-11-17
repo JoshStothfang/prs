@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div>
-    <p>product-detail works!</p>
+    <h4>Product Details</h4>
     <ng-container *ngIf="loaded">
         <table class="table table-striped-columns table-sm">
             <tbody>
@@ -38,12 +38,15 @@
                 </tr>
             </tbody>
         </table>
+        <div>
+            <button class="btn btn-primary" routerLink="/product/edit/{{ product!.id }}">Edit Product</button>
+        </div>
         <ng-container *ngIf="!removeToggled">
             <button class="btn btn-danger" (click)="toggleRemove()">Delete Product</button>
         </ng-container>
         <ng-container *ngIf="removeToggled">
             <p>Are you sure?</p>
-            <button class="btn btn-danger" (click)="remove()">Yes</button>
+            <button class="btn btn-danger btn-space" (click)="remove()">Yes</button>
             <button class="btn btn-primary" (click)="toggleRemove()">No</button>
         </ng-container>
     </ng-container>
