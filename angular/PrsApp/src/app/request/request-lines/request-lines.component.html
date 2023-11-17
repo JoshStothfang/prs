@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div>
-    <p>request-lines works!</p>
+    <h4>Request Lines</h4>
     <ng-container *ngIf="loaded">
         <table class="table table-striped table-sm">
             <thead>
@@ -55,8 +55,8 @@
                             <button class="btn btn-danger btn-sm" (click)="toggleRemoveReqLine(rl.id)">Delete</button>
                         </div>
                         <div *ngIf="removeReqLineToggled && toggledReqLineId === rl.id">
-                            <p>Are you sure?</p>
-                            <button class="btn btn-danger btn-sm" (click)="removeReqLine(rl.id)">Yes</button>
+                            <p class="inline btn-space">Are you sure?</p>
+                            <button class="btn btn-danger btn-sm btn-space" (click)="removeReqLine(rl.id)">Yes</button>
                             <button class="btn btn-primary btn-sm" (click)="toggleRemoveReqLine(rl.id)">No</button>
                         </div>
                     </td>

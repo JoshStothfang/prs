@@ -1,3 +1,7 @@
 #staticColumn {
-    width: 150px;
+    width: 225px;
+}
+
+.inline {
+    display: inline;
 }

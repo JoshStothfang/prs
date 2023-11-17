@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div>
-    <p>request-review-item works!</p>
+    <h4>Review Request</h4>
     <ng-container *ngIf="loaded">
         <table class="table table-striped table-sm">
             <thead>
@@ -47,12 +47,12 @@
             </tbody>
         </table>
         <ng-container *ngIf="!rejectToggled">
-            <button class="btn btn-success" (click)="approve()">Approve</button>
+            <button class="btn btn-success btn-space" (click)="approve()">Approve</button>
             <button class="btn btn-danger" (click)="toggleReject()">Reject</button>
         </ng-container>
         <ng-container *ngIf="rejectToggled">
-            <input id="rejectReason" placeholder="Rejection Reason (required)" [(ngModel)]="rejectionReason">
-            <button class="btn btn-danger" (click)="reject()">Submit Rejection</button>
+            <input id="rejectReason" class="btn-space" placeholder="Rejection Reason (required)" [(ngModel)]="rejectionReason">
+            <button class="btn btn-danger btn-space" (click)="reject()">Submit Rejection</button>
             <button class="btn btn-primary" (click)="toggleReject()">Cancel</button>
         </ng-container>
     </ng-container>
