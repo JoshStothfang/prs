@@ -1,11 +1,11 @@
 USE PrsDb;
 GO
 
-DELETE Users;
-DELETE Vendors;
-DELETE Products;
-DELETE Requests;
 DELETE RequestLines;
+DELETE Requests;
+DELETE Products;
+DELETE Vendors;
+DELETE Users;
 GO
 
 DBCC CHECKIDENT ('Users', RESEED, 0);
@@ -38,9 +38,10 @@ GO
 
 INSERT Requests (Description, Justification, DeliveryMode, Status, Total, UserID)
 VALUES
-    ('Request 1', 'one', 'Pickup', 'NEW', 0, 2),
-    ('Request 2', 'two', 'Pickup', 'NEW', 0, 3),
-    ('Request 3', 'three', 'Pickup', 'NEW', 0, 1);
+    ('Request 1', 'one', 'Pickup', 'REVIEW', 1030, 2),
+    ('Request 2', 'two', 'Pickup', 'NEW', 2000, 3),
+    ('Request 3', 'three', 'Pickup', 'REVIEW', 1550, 1),
+    ('Request 4', 'four', 'Pickup', 'NEW', 30, 1);
 GO
 
 INSERT RequestLines (RequestId, ProductId, Quantity)
@@ -50,5 +51,6 @@ VALUES
     (2, 3, 2),
     (3, 1, 5),
     (3, 2, 2),
-    (3, 3, 1);
+    (3, 3, 1),
+    (4, 1, 3)
 GO
