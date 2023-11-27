@@ -1,29 +1,21 @@
 import { Injectable } from '@angular/core';
 import { User } from '../user/user.class';
 import { Router } from '@angular/router';
+import { AppInitService } from '../app-init.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SystemService {
 
-  
+  get config() { return this.init.config; }
+
   loggedInUser: User | null = null;
 
   constructor(
+    private init: AppInitService,
     private router: Router
-  ) { 
-    
-    //temporary loggedInUser for testing purposes
-    this.loggedInUser = new User();
-    this.loggedInUser.id = 1;
-    this.loggedInUser.username = "admin";
-    this.loggedInUser.password = "Password123";
-    this.loggedInUser.firstname = "John";
-    this.loggedInUser.lastname = "Doe";
-    this.loggedInUser.isReviewer = true;
-    this.loggedInUser.isAdmin = true;
-  }
+  ) { }
 
   loggedIn(): boolean {
 
