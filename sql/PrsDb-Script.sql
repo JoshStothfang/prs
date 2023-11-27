@@ -39,7 +39,7 @@ GO
 INSERT Requests (Description, Justification, DeliveryMode, Status, Total, UserID)
 VALUES
     ('Request 1', 'one', 'Pickup', 'REVIEW', 1030, 2),
-    ('Request 2', 'two', 'Pickup', 'NEW', 2000, 3),
+    ('Request 2', 'two', 'Pickup', 'REVIEW', 2000, 3),
     ('Request 3', 'three', 'Pickup', 'REVIEW', 1550, 1),
     ('Request 4', 'four', 'Pickup', 'NEW', 30, 1);
 GO
