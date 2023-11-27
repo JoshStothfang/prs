@@ -2,14 +2,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PrsApp.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+var connStrKey = "ProdDb";
+#if DEBUG
+    connStrKey = "DevDb";
+#endif
 builder.Services.AddDbContext<PrsDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DevDb") ?? throw new InvalidOperationException("Connection string 'DevDb' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString(connStrKey) ?? throw new InvalidOperationException($"Connection string '{connStrKey}' not found.")));
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 
-//Remove/change before production
 builder.Services.AddCors();
 
 var app = builder.Build();
