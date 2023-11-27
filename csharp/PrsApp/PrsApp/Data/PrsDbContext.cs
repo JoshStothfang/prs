@@ -23,5 +23,18 @@ namespace PrsApp.Data
         public DbSet<Request> Requests { get; set; } = default!;
 
         public DbSet<RequestLine> RequestLines { get; set; } = default!;
+
+        public PrsDbContext()
+        {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("connection string");
+            }
+        }
+
     }
 }
